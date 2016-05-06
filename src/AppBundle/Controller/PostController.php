@@ -6,10 +6,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class PostController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/posts", name="app_post_list")
      */
     public function indexAction(Request $request)
     {
@@ -29,7 +29,7 @@ class DefaultController extends Controller
         ];
 
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
+        return $this->render('posts/index.html.twig', [
           'variable' => $var,
           'tables' => $tab,
           'produit' => $product
