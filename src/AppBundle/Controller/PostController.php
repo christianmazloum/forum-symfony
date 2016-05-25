@@ -21,7 +21,7 @@ class PostController extends Controller
 
         if (!$article) {
           throw $this->createNotFoundException(
-          'No product found for id '.$id
+          'No product found for id '
           );
         }
 
@@ -46,7 +46,7 @@ class PostController extends Controller
         if ($article) {
           exit;
         }
-        
+
         $em->persist($form->getData());
         $em->flush();
       }
@@ -58,18 +58,43 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/post/view", name="app_post_view")
+     * @Route("/post/view/{id}", name="app_post_view")
      */
-    public function ViewAction(Request $request)
+    public function ViewAction(Request $request, $id)
     {
+      $em = $this->getDoctrine()->getManager();
+      $article = $em->getRepository('AppBundle:Article')->findOneById($id);
 
+      return $this->render('posts/view.html.twig', [
+        'article' => $article
+      ]);
     }
 
     /**
-     * @Route("/post/edit", name="app_post_edit")
+     * @Route("/post/edit/{id}", name="app_post_edit")
      */
-    public function EditAction(Request $request)
+    public function EditAction(Request $request, $id)
     {
+      $em = $this->getDoctrine()->getManager();
+      $article = $em->getRepository('AppBundle:Article')->findOneById($id);
 
+      var_dump($article);
+      exit;
+      $em->remove($product);
+$em->flush();
+    }
+
+    /**
+     * @Route("/post/delete/{id}", name="app_post_delete")
+     */
+    public function DeleteAction(Request $request, $id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $article = $em->getRepository('AppBundle:Article')->findOneById($id);
+
+      $em->remove($article);
+      $em->flush();
+
+      return $this->redirectToRoute('app_post_index');
     }
 }
