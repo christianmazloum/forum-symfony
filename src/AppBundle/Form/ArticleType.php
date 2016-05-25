@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class ArticleType extends AbstractType
 {
@@ -19,9 +21,10 @@ class ArticleType extends AbstractType
             ->add('content')
             ->add('date')
             ->add('author')
+            ->add('submit', SubmitType::class)
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

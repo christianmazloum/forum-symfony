@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ajout d'articles :</h1>
+
+    {{ form( form ) }}
+
+    <a href="{{path ('homepage')}}">
+        <button type="button" name="button">Home</button>
+    </a>
+{% endblock %}

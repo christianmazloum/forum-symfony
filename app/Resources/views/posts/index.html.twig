@@ -3,14 +3,14 @@
 {% block body %}
     <h1>Tous les articles :</h1>
 
-    <h2>
+    <h4>
         {% for article in articles %}
         <hr>
             <p>{{ article.title }}</p>
             <p>{{ article.content }}</p>
             <p>By : {{ article.author}}</p>
         {% endfor %}
-    </h2>
+    </h4>
 
     <a href="{{path ('homepage')}}">
         <button type="button" name="button">Home</button>
