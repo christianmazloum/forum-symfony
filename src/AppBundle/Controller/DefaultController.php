@@ -13,7 +13,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $var = "mazloum";
+        $var = "DATA";
         $tab = ['toto', 'tata', 'titi'];
         $product = [
           0 => [

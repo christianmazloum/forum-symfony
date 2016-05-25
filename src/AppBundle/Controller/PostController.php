@@ -14,21 +14,6 @@ class PostController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $var = "mazloum";
-        $tab = ['toto', 'tata', 'titi'];
-        $product = [
-          0 => [
-            'name' => 'Popo',
-            'codeProduct' => 'pagepopo',
-            'price' => 22,
-          ],
-          1 =>[
-            'name' => 'Pepe',
-            'codeProduct' => 'pagepepe',
-            'price' => 75,
-          ],
-        ];
-
         $article = $this->getDoctrine()
         ->getRepository('AppBundle:Article')
         ->findAll();
@@ -39,13 +24,8 @@ class PostController extends Controller
           );
         }
 
-
-        // replace this example code with whatever you need
         return $this->render('posts/index.html.twig', [
           'articles' => $article,
-          'variable' => $var,
-          'tables' => $tab,
-          'produit' => $product
         ]);
     }
 }
