@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sujet list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sujet in sujets %}
+            <tr>
+                <td><a href="{{ path('sujet_show', { 'id': sujet.id }) }}">{{ sujet.id }}</a></td>
+                <td>{{ sujet.title }}</td>
+                <td>{{ sujet.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sujet_show', { 'id': sujet.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sujet_edit', { 'id': sujet.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sujet_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

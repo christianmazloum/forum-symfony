@@ -80,8 +80,6 @@ class PostController extends Controller
 
       var_dump($article);
       exit;
-      $em->remove($product);
-$em->flush();
     }
 
     /**
